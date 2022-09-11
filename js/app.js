@@ -29,9 +29,20 @@
  * Start Helper Functions
  * 
 */
-
-
-
+function buildNAvBar(){
+    const sectionList=document.querySelectorAll('section');
+    let navList=[];
+    for(let i=0;i<sectionList.length;i++)
+        navList.push(sectionList[i].dataset.nav);
+    let fragment=document.createDocumentFragment();
+    for(let i=0;i<navList.length;i++){
+        const newA=document.createElement('a');
+        newA.textContent=navList[i];
+        newA.href='#section'+(i+1);
+        fragment.appendChild(newA);
+    }
+    document.querySelector(".navbar__menu").appendChild(fragment);
+}
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -39,7 +50,7 @@
 */
 
 // build the nav
-
+buildNAvBar();
 
 // Add class 'active' to section when near top of viewport
 
