@@ -64,25 +64,31 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-.navbar__menu ul {
+/*.navbar__menu .a {
     padding-left: 0;
     margin: 0;
     text-align: right;
-}
+}*/
 
 .navbar__menu li {
     display: inline-block;
 }
 
-.navbar__menu .menu__link {
+.navbar__menu {
     display: block;
     padding: 1em;
     font-weight: bold;
-    text-decoration: none;
+    text-align:right;
+    
+}
+.navbar__menu a{
     color: #000;
+    text-decoration: none;
+    padding: 1em;
+
 }
 
-.navbar__menu .menu__link:hover {
+.navbar__menu :hover {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
