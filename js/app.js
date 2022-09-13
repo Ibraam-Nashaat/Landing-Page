@@ -43,6 +43,14 @@ function buildNAvBar(){
     }
     document.querySelector(".navbar__menu").appendChild(fragment);
 }
+function scrollToSection(){
+    document.querySelectorAll(".navbar__menu a").forEach(function(anc){
+        anc.addEventListener("click", function(e){
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:"smooth"});
+        })
+    })
+}
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -56,7 +64,7 @@ buildNAvBar();
 
 
 // Scroll to anchor ID using scrollTO event
-
+scrollToSection()
 
 /**
  * End Main Functions
