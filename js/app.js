@@ -39,6 +39,8 @@ function buildNAvBar(){
         const newA=document.createElement('a');
         newA.textContent=navList[i];
         newA.href='#section'+(i+1);
+        if(i==0)
+            newA.classList.add('active');
         fragment.appendChild(newA);
     }
     document.querySelector(".navbar__menu").appendChild(fragment);
@@ -58,7 +60,11 @@ var sections = document.querySelectorAll("section");
 addEventListener('scroll',function () {
   var scrollPosition = document.documentElement.getBoundingClientRect().top;
   sections.forEach((section) => {
-    if (Math.abs(scrollPosition) >= section.offsetTop- section.offsetHeight * 0.35  &&
+    if(Math.abs(scrollPosition) < sections[0].offsetTop){
+      sections[0].classList.add("your-active-class");
+      document.querySelector(`nav a[href="#${sections[0].attributes.id.value}"]`).classList.add("active");
+    }
+    else if (Math.abs(scrollPosition) >= section.offsetTop- section.offsetHeight * 0.35  &&
     Math.abs(scrollPosition) <section.offsetTop + section.offsetHeight- section.offsetHeight * 0.35 ) {
       section.classList.add("your-active-class");
       document.querySelector(`nav a[href="#${section.attributes.id.value}"]`).classList.add("active");
