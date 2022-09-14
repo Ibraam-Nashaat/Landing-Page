@@ -49,7 +49,7 @@ function buildNAvBar(){
 }
 
 function scrollToSection(){
-    document.querySelectorAll(".navbar__menu a").forEach(function(anc){
+    document.querySelectorAll("#navbar__list li a").forEach(function(anc){
         anc.addEventListener("click", function(e){
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:"smooth"});
@@ -83,7 +83,13 @@ addEventListener('scroll',function () {
  * Begin Main Functions
  * 
 */
-
+function toggleButtonMenu(){
+  const toggleButton = document.getElementsByClassName('toggle-button')[0];
+  const navbarLinks = document.querySelector("#navbar__list");
+  toggleButton.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+  })
+}
 // build the nav
 buildNAvBar();
 
@@ -98,7 +104,7 @@ scrollToSection()
  * Begin Events
  * 
 */
-
+toggleButtonMenu();
 // Build menu 
 
 // Scroll to section on link click

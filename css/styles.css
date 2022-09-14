@@ -82,6 +82,7 @@ section {
     color: #000;
 }
 
+
 #navbar__list :hover {
     background: #333;
     color: #fff;
@@ -93,6 +94,11 @@ section {
     color: #fff;
     transition: ease 0.3s all;
 }
+.brand-title {
+    font-size: 1.4em;
+    margin: 0.5em 1.5em;
+    color:#000;
+}
 
 /* Header Styles */
 .page__header {
@@ -101,6 +107,9 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* Footer Styles */
@@ -226,4 +235,57 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    margin:auto
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .navbar__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+    
+    #navbar__list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #navbar__list ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+
+    #navbar__list.active {
+        display: flex;
+        
+    }
+    .page__header{
+        flex-direction: column;
+    }
+ 
+    
 }
