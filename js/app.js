@@ -43,6 +43,7 @@ function buildNAvBar(){
     }
     document.querySelector(".navbar__menu").appendChild(fragment);
 }
+
 function scrollToSection(){
     document.querySelectorAll(".navbar__menu a").forEach(function(anc){
         anc.addEventListener("click", function(e){
@@ -50,6 +51,24 @@ function scrollToSection(){
             document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:"smooth"});
         })
     })
+}
+
+function setActiveSection(){
+var sections = document.querySelectorAll("section");
+addEventListener('scroll',function () {
+  var scrollPosition = document.documentElement.getBoundingClientRect().top;
+  sections.forEach((section) => {
+    if (Math.abs(scrollPosition) >= section.offsetTop- section.offsetHeight * 0.35  &&
+    Math.abs(scrollPosition) <section.offsetTop + section.offsetHeight- section.offsetHeight * 0.35 ) {
+      section.classList.add("your-active-class");
+      document.querySelector(`nav a[href="#${section.attributes.id.value}"]`).classList.add("active");
+    }
+    else {
+        section.classList.remove("your-active-class");
+        document.querySelector(`nav a[href="#${section.attributes.id.value}"]`).classList.remove("active");
+    }
+  });
+});
 }
 /**
  * End Helper Functions
@@ -61,7 +80,7 @@ function scrollToSection(){
 buildNAvBar();
 
 // Add class 'active' to section when near top of viewport
-
+setActiveSection();
 
 // Scroll to anchor ID using scrollTO event
 scrollToSection()
