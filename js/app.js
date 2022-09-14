@@ -37,13 +37,15 @@ function buildNAvBar(){
     let fragment=document.createDocumentFragment();
     for(let i=0;i<navList.length;i++){
         const newA=document.createElement('a');
+        const newli=document.createElement('li');
         newA.textContent=navList[i];
         newA.href='#section'+(i+1);
         if(i==0)
             newA.classList.add('active');
-        fragment.appendChild(newA);
+        newli.appendChild(newA);
+        fragment.appendChild(newli);
     }
-    document.querySelector(".navbar__menu").appendChild(fragment);
+    document.querySelector("#navbar__list").appendChild(fragment);
 }
 
 function scrollToSection(){
@@ -62,16 +64,16 @@ addEventListener('scroll',function () {
   sections.forEach((section) => {
     if(Math.abs(scrollPosition) < sections[0].offsetTop){
       sections[0].classList.add("your-active-class");
-      document.querySelector(`nav a[href="#${sections[0].attributes.id.value}"]`).classList.add("active");
+      document.querySelector(`#navbar__list li a[href="#${sections[0].attributes.id.value}"]`).classList.add("active");
     }
     else if (Math.abs(scrollPosition) >= section.offsetTop- section.offsetHeight * 0.35  &&
     Math.abs(scrollPosition) <section.offsetTop + section.offsetHeight- section.offsetHeight * 0.35 ) {
       section.classList.add("your-active-class");
-      document.querySelector(`nav a[href="#${section.attributes.id.value}"]`).classList.add("active");
+      document.querySelector(`#navbar__list li a[href="#${section.attributes.id.value}"]`).classList.add("active");
     }
     else {
         section.classList.remove("your-active-class");
-        document.querySelector(`nav a[href="#${section.attributes.id.value}"]`).classList.remove("active");
+        document.querySelector(`#navbar__list li a[href="#${section.attributes.id.value}"]`).classList.remove("active");
     }
   });
 });
