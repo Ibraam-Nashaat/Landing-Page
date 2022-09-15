@@ -279,7 +279,7 @@ section.your-active-class .landing__container::after {
     }
 
 
-    #navbar__list.active {
+    #navbar__list.active-button {
         display: flex;
         
     }
