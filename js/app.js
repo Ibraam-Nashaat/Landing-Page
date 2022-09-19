@@ -48,11 +48,11 @@ function scrollToSection(){
 
 //setActiveSection sets the active section and highlights the active section in navBar
 function setActiveSection(){
-var sections = document.querySelectorAll("section");
+let sections = document.querySelectorAll("section");
 //the function is executed on scrolling to set the current active section in navBar and sections
 addEventListener('scroll',function () {
   //gets the height from the top of the page to the current point
-  var scrollPosition = document.documentElement.getBoundingClientRect().top;
+  let scrollPosition = document.documentElement.getBoundingClientRect().top;
   /*detects the current scrolling position relative to the page
     to highlight the current active section in navbar  */
   sections.forEach((section) => {
